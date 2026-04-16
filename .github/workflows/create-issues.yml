@@ -1,0 +1,155 @@
+name: Create GitHub Issues from issue.json
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'issues/issue.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: create-issues-from-json-main
+  cancel-in-progress: false
+
+jobs:
+  create-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate issue.json exists
+        run: |
+          if [ ! -f issues/issue.json ]; then
+            echo "issues/issue.json not found. Exiting without error."
+            exit 0
+          fi
+
+      - name: Create issues with double duplicate protection
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'issues/issue.json';
+
+            if (!fs.existsSync(path)) {
+              core.notice('No issues/issue.json found; nothing to do.');
+              return;
+            }
+
+            let raw;
+            try {
+              raw = fs.readFileSync(path, 'utf8');
+            } catch (err) {
+              core.setFailed(`Failed to read ${path}: ${err.message}`);
+              return;
+            }
+
+            let data;
+            try {
+              data = JSON.parse(raw);
+            } catch (err) {
+              core.setFailed(`Invalid JSON in ${path}: ${err.message}`);
+              return;
+            }
+
+            if (!Array.isArray(data.issues)) {
+              core.setFailed('issue.json must contain an "issues" array.');
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            function normalizeTitle(title) {
+              return String(title || '').trim().toLowerCase().replace(/\s+/g, ' ');
+            }
+
+            function markerFor(key) {
+              return `<!-- dedupe_key:${key} -->`;
+            }
+
+            const allIssues = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'all',
+              per_page: 100
+            });
+
+            const existingByMarker = new Set();
+            const existingByTitle = new Set();
+
+            for (const it of allIssues) {
+              if (it.pull_request) continue;
+              existingByTitle.add(normalizeTitle(it.title));
+              const body = it.body || '';
+              const m = body.match(/<!--\s*dedupe_key:([^\s>]+)\s*-->/i);
+              if (m && m[1]) existingByMarker.add(m[1]);
+            }
+
+            let created = 0;
+            let skippedMarker = 0;
+            let skippedTitle = 0;
+            let invalid = 0;
+
+            for (let i = 0; i < data.issues.length; i++) {
+              const item = data.issues[i] || {};
+              const title = String(item.title || '').trim();
+              const body = String(item.body || '').trim();
+              const labels = Array.isArray(item.labels) ? item.labels : [];
+              const assignees = Array.isArray(item.assignees) ? item.assignees : [];
+              const dedupeKey = String(item.dedupe_key || '').trim();
+
+              if (!title || !body || !dedupeKey) {
+                invalid++;
+                core.warning(`Skipping index ${i}: title/body/dedupe_key are required.`);
+                continue;
+              }
+
+              const normTitle = normalizeTitle(title);
+
+              // Safety #1: marker-based dedupe across open+closed issues
+              if (existingByMarker.has(dedupeKey)) {
+                skippedMarker++;
+                core.info(`Skipping "${title}" (dedupe_key already exists: ${dedupeKey}).`);
+                continue;
+              }
+
+              // Safety #2: strict title-based dedupe across open+closed issues
+              if (existingByTitle.has(normTitle)) {
+                skippedTitle++;
+                core.info(`Skipping "${title}" (title already exists).`);
+                continue;
+              }
+
+              const finalBody = `${body}\n\n${markerFor(dedupeKey)}`;
+
+              const createdIssue = await github.rest.issues.create({
+                owner,
+                repo,
+                title,
+                body: finalBody,
+                labels,
+                assignees
+              });
+
+              created++;
+              existingByMarker.add(dedupeKey);
+              existingByTitle.add(normTitle);
+              core.notice(`Created issue #${createdIssue.data.number}: ${title}`);
+            }
+
+            core.summary
+              .addHeading('Issue Creation Summary')
+              .addRaw(`Total entries: ${data.issues.length}\n`, true)
+              .addRaw(`Created: ${created}\n`, true)
+              .addRaw(`Skipped (dedupe_key): ${skippedMarker}\n`, true)
+              .addRaw(`Skipped (title): ${skippedTitle}\n`, true)
+              .addRaw(`Invalid entries: ${invalid}\n`, true)
+              .write();
