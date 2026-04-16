@@ -1,0 +1,10 @@
+{
+  "issues": [
+    {
+      "title": "Comprehensive Frontend Testing (UI, Functional, Unit) with Deep Edge-Case Coverage",
+      "body": "Perform end-to-end validation of the frontend with deep test coverage across UI, functionality, and unit-level behavior.\n\nScope:\n- UI Testing:\n  - Verify layout, responsiveness, accessibility basics, visual consistency, and cross-page user flows.\n  - Use Playwright for browser automation where available; if unavailable, perform best-effort manual/alternative checks and document limitations.\n- Functional Testing:\n  - Validate all critical user journeys, forms, API interactions, state transitions, loading/error/empty states, permissions, and recovery behavior.\n- Unit Testing:\n  - Add/extend unit tests for core components, hooks, utilities, and business logic with meaningful assertions and mocking strategy.\n\nDepth Requirements:\n- Include edge cases (invalid input, boundary values, network failures, timeouts, retries, race conditions, stale state, unexpected API payloads, and large data scenarios).\n- Ensure regressions are prevented and existing behavior remains intact.\n\nDeliverables:\n- Test execution report summarizing:\n  - Passed scenarios\n  - Failed scenarios with reproducible steps\n  - Observed bugs/errors\n  - Improvement opportunities (testability, UX, performance, reliability)\n- Actionable summary with prioritized fixes.\n\nDefinition of Done:\n- Test suites are run and results are documented.\n- Critical/high-impact issues are clearly identified.\n- Final summary includes improvements, errors, and passed cases.",
+      "dedupe_key": "frontend-comprehensive-testing-ui-functional-unit-edge-cases",
+      "labels": ["testing", "frontend", "qa", "ui", "unit-test", "functional-test"]
+    }
+  ]
+}
