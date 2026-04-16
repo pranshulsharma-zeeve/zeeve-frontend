@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Monthly Validator Rewards Report</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "DM Sans",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+        padding: 20px;
+        color: #e8eaf0;
+      }
+
+      .email-container {
+        max-width: 680px;
+        margin: 0 auto;
+        background: #13172e;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      .header {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+        padding: 40px 32px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.3;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .logo {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+      }
+
+      .header-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 8px;
+        line-height: 1.2;
+      }
+
+      .header-subtitle {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 400;
+      }
+
+      .date-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #ffffff;
+        margin-top: 16px;
+        backdrop-filter: blur(10px);
+      }
+
+      .content {
+        padding: 40px 32px;
+      }
+
+      .section {
+        margin-bottom: 36px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #e8eaf0;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title::before {
+        content: "";
+        width: 4px;
+        height: 20px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        border-radius: 2px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .stat-card {
+        background: linear-gradient(135deg, #1a1f3e 0%, #252b4a 100%);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .stat-value {
+        font-size: 28px;
+        font-weight: 700;
+        color: #ffffff;
+        font-family: "JetBrains Mono", monospace;
+        line-height: 1;
+      }
+
+      .stat-subtext {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 6px;
+      }
+
+      .protocol-breakdown {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .protocol-card {
+        background: linear-gradient(135deg, #1a1f3e 0%, #252b4a 100%);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 12px;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .protocol-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        background: rgba(139, 92, 246, 0.1);
+        border-radius: 0 12px 0 100%;
+      }
+
+      .protocol-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .protocol-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        background: rgba(139, 92, 246, 0.15);
+      }
+
+      .protocol-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #e8eaf0;
+      }
+
+      .protocol-stats {
+        position: relative;
+        z-index: 1;
+      }
+
+      .protocol-amount {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+        font-family: "JetBrains Mono", monospace;
+        margin-bottom: 6px;
+      }
+
+      .protocol-currency {
+        font-size: 14px;
+        color: #9ca3af;
+        margin-bottom: 12px;
+      }
+
+      .protocol-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 12px;
+        border-top: 1px solid rgba(139, 92, 246, 0.15);
+      }
+
+      .protocol-nodes {
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      .protocol-change {
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .change-positive {
+        color: #10b981;
+      }
+
+      .change-negative {
+        color: #ef4444;
+      }
+
+      .change-neutral {
+        color: #9ca3af;
+      }
+
+      .total-summary {
+        background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+        border-radius: 12px;
+        padding: 28px;
+        text-align: center;
+        margin-bottom: 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .total-summary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+        opacity: 0.5;
+      }
+
+      .total-summary-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .total-label {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 500;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .total-amount {
+        font-size: 48px;
+        font-weight: 700;
+        color: #ffffff;
+        font-family: "JetBrains Mono", monospace;
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+
+      .total-currency {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 12px;
+      }
+
+      .total-comparison {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+      }
+
+      .performance-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-top: 12px;
+      }
+
+      .top-performers {
+        background: linear-gradient(135deg, #1a1f3e 0%, #252b4a 100%);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .top-performers-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #10b981;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .performer-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+      }
+
+      .performer-item:last-child {
+        border-bottom: none;
+      }
+
+      .performer-rank {
+        font-size: 18px;
+        font-weight: 700;
+        color: #8b5cf6;
+        width: 30px;
+      }
+
+      .performer-info {
+        flex: 1;
+        margin-left: 12px;
+      }
+
+      .performer-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: #e8eaf0;
+        margin-bottom: 4px;
+      }
+
+      .performer-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .performer-id {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: #6b7280;
+      }
+
+      .performer-protocol {
+        font-size: 10px;
+        padding: 2px 6px;
+        background: rgba(139, 92, 246, 0.15);
+        color: #a78bfa;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .performer-amount-wrapper {
+        text-align: right;
+      }
+
+      .performer-amount {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        font-weight: 600;
+        color: #10b981;
+      }
+
+      .performer-currency {
+        font-size: 11px;
+        color: #6b7280;
+      }
+
+      .compact-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: #1a1f3e;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        margin-bottom: 16px;
+      }
+
+      .compact-table thead {
+        background: rgba(139, 92, 246, 0.15);
+      }
+
+      .compact-table th {
+        padding: 12px 14px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: #c4b5fd;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .compact-table th.align-right {
+        text-align: right;
+      }
+
+      .compact-table td {
+        padding: 12px 14px;
+        border-top: 1px solid rgba(139, 92, 246, 0.1);
+        font-size: 13px;
+        color: #e8eaf0;
+      }
+
+      .compact-table td.align-right {
+        text-align: right;
+      }
+
+      .compact-table tr:hover {
+        background: rgba(139, 92, 246, 0.05);
+      }
+
+      .node-name-cell {
+        font-weight: 500;
+      }
+
+      .node-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .node-id-small {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: #6b7280;
+      }
+
+      .node-protocol-badge {
+        font-size: 10px;
+        padding: 2px 6px;
+        background: rgba(139, 92, 246, 0.15);
+        color: #a78bfa;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .amount-cell {
+        font-weight: 600;
+        font-family: "JetBrains Mono", monospace;
+        color: #ffffff;
+      }
+
+      .amount-with-currency {
+        display: block;
+      }
+
+      .currency-label {
+        font-size: 11px;
+        color: #6b7280;
+        font-weight: 400;
+      }
+
+      .change-cell {
+        font-weight: 600;
+        font-size: 12px;
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+
+      .status-active {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+      }
+
+      .status-warning {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+      }
+
+      .table-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 14px;
+        background: rgba(139, 92, 246, 0.08);
+        border-radius: 8px;
+        margin-top: 8px;
+      }
+
+      .table-footer-text {
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      .view-all-link {
+        color: #8b5cf6;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+
+      .view-all-link:hover {
+        color: #a78bfa;
+      }
+
+      .withdrawal-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: #1a1f3e;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(139, 92, 246, 0.2);
+      }
+
+      .withdrawal-table thead {
+        background: rgba(139, 92, 246, 0.15);
+      }
+
+      .withdrawal-table th {
+        padding: 12px 14px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: #c4b5fd;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .withdrawal-table td {
+        padding: 12px 14px;
+        border-top: 1px solid rgba(139, 92, 246, 0.1);
+        font-size: 13px;
+        color: #e8eaf0;
+      }
+
+      .withdrawal-table tr:hover {
+        background: rgba(139, 92, 246, 0.05);
+      }
+
+      .tx-hash {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: #8b5cf6;
+        text-decoration: none;
+        padding: 4px 8px;
+        background: rgba(139, 92, 246, 0.1);
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.2s;
+      }
+
+      .tx-hash:hover {
+        background: rgba(139, 92, 246, 0.2);
+        color: #a78bfa;
+      }
+
+      .date-cell {
+        color: #9ca3af;
+        font-size: 12px;
+      }
+
+      .insights-box {
+        background: rgba(245, 158, 11, 0.08);
+        border-left: 3px solid #f59e0b;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 20px;
+      }
+
+      .insights-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #f59e0b;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .insights-text {
+        font-size: 13px;
+        color: #e8eaf0;
+        line-height: 1.6;
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 32px 20px;
+        background: rgba(139, 92, 246, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(139, 92, 246, 0.15);
+      }
+
+      .cta-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #e8eaf0;
+        margin-bottom: 12px;
+      }
+
+      .cta-text {
+        font-size: 14px;
+        color: #9ca3af;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+      }
+
+      .cta-button-secondary {
+        background: rgba(139, 92, 246, 0.15);
+        color: #a78bfa;
+        box-shadow: none;
+      }
+
+      .cta-button-secondary:hover {
+        background: rgba(139, 92, 246, 0.25);
+      }
+
+      .footer {
+        padding: 32px;
+        text-align: center;
+        border-top: 1px solid rgba(139, 92, 246, 0.1);
+      }
+
+      .footer-text {
+        font-size: 13px;
+        color: #6b7280;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer-link {
+        color: #8b5cf6;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .footer-link:hover {
+        color: #a78bfa;
+      }
+
+      @media (max-width: 600px) {
+        .header {
+          padding: 28px 20px;
+        }
+
+        .header-title {
+          font-size: 26px;
+        }
+
+        .content {
+          padding: 28px 20px;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .protocol-breakdown {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-value {
+          font-size: 24px;
+        }
+
+        .total-amount {
+          font-size: 36px;
+        }
+
+        .compact-table {
+          font-size: 11px;
+        }
+
+        .compact-table th,
+        .compact-table td {
+          padding: 10px 8px;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+
+        .cta-button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-content">
+          <div class="logo">ZEEVE</div>
+          <h1 class="header-title">Your Monthly Rewards Report</h1>
+          <p class="header-subtitle">January 2025 Performance Summary</p>
+          <div class="date-badge">📅 Report Period: Jan 1 - Jan 31, 2025</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="content">
+        <!-- Total Summary -->
+        <div class="total-summary">
+          <div class="total-summary-content">
+            <div class="total-label">Total Rewards Earned</div>
+            <div class="total-amount">$284,752</div>
+            <div class="total-currency">USD Equivalent</div>
+            <div class="total-comparison">+8.4% from last month</div>
+            <div class="performance-badge">
+              <span>📈</span>
+              <span>$21,893 increase</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Active Validators</div>
+            <div class="stat-value">35</div>
+            <div class="stat-subtext">across 5 protocols</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Protocols</div>
+            <div class="stat-value">5</div>
+            <div class="stat-subtext">networks</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Best Performer</div>
+            <div class="stat-value">$9.2K</div>
+            <div class="stat-subtext">single node</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Withdrawn</div>
+            <div class="stat-value">$142K</div>
+            <div class="stat-subtext">this month</div>
+          </div>
+        </div>
+
+        <!-- Protocol Breakdown -->
+        <div class="section">
+          <h2 class="section-title">Performance by Protocol</h2>
+
+          <div class="protocol-breakdown">
+            <!-- Ethereum -->
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <div class="protocol-icon">◈</div>
+                <div class="protocol-name">Ethereum</div>
+              </div>
+              <div class="protocol-stats">
+                <div class="protocol-amount">523.45 ETH</div>
+                <div class="protocol-currency">$142,450 USD</div>
+                <div class="protocol-meta">
+                  <span class="protocol-nodes">12 validators</span>
+                  <span class="protocol-change change-positive">+12.4%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Polygon -->
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <div class="protocol-icon">⬡</div>
+                <div class="protocol-name">Polygon</div>
+              </div>
+              <div class="protocol-stats">
+                <div class="protocol-amount">18,742 MATIC</div>
+                <div class="protocol-currency">$52,876 USD</div>
+                <div class="protocol-meta">
+                  <span class="protocol-nodes">8 validators</span>
+                  <span class="protocol-change change-positive">+6.8%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Solana -->
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <div class="protocol-icon">◎</div>
+                <div class="protocol-name">Solana</div>
+              </div>
+              <div class="protocol-stats">
+                <div class="protocol-amount">892.34 SOL</div>
+                <div class="protocol-currency">$48,923 USD</div>
+                <div class="protocol-meta">
+                  <span class="protocol-nodes">7 validators</span>
+                  <span class="protocol-change change-positive">+15.2%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cosmos -->
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <div class="protocol-icon">⚛</div>
+                <div class="protocol-name">Cosmos</div>
+              </div>
+              <div class="protocol-stats">
+                <div class="protocol-amount">3,245 ATOM</div>
+                <div class="protocol-currency">$28,763 USD</div>
+                <div class="protocol-meta">
+                  <span class="protocol-nodes">5 validators</span>
+                  <span class="protocol-change change-negative">-3.1%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Avalanche -->
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <div class="protocol-icon">▲</div>
+                <div class="protocol-name">Avalanche</div>
+              </div>
+              <div class="protocol-stats">
+                <div class="protocol-amount">445.67 AVAX</div>
+                <div class="protocol-currency">$11,740 USD</div>
+                <div class="protocol-meta">
+                  <span class="protocol-nodes">3 validators</span>
+                  <span class="protocol-change change-positive">+9.7%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Performers -->
+        <div class="section">
+          <div class="top-performers">
+            <div class="top-performers-title">
+              <span>🏆</span>
+              <span>Top 5 Performing Validators</span>
+            </div>
+
+            <div class="performer-item">
+              <div class="performer-rank">#1</div>
+              <div class="performer-info">
+                <div class="performer-name">Ethereum Validator Alpha-07</div>
+                <div class="performer-meta">
+                  <span class="performer-id">0x742d...89ef</span>
+                  <span class="performer-protocol">ETH</span>
+                </div>
+              </div>
+              <div class="performer-amount-wrapper">
+                <div class="performer-amount">87.45 ETH</div>
+                <div class="performer-currency">$23,812</div>
+              </div>
+            </div>
+
+            <div class="performer-item">
+              <div class="performer-rank">#2</div>
+              <div class="performer-info">
+                <div class="performer-name">Ethereum Validator Beta-12</div>
+                <div class="performer-meta">
+                  <span class="performer-id">0x8a3c...12bd</span>
+                  <span class="performer-protocol">ETH</span>
+                </div>
+              </div>
+              <div class="performer-amount-wrapper">
+                <div class="performer-amount">76.23 ETH</div>
+                <div class="performer-currency">$20,751</div>
+              </div>
+            </div>
+
+            <div class="performer-item">
+              <div class="performer-rank">#3</div>
+              <div class="performer-info">
+                <div class="performer-name">Solana Validator Prime-01</div>
+                <div class="performer-meta">
+                  <span class="performer-id">9Xm...Qa7Z</span>
+                  <span class="performer-protocol">SOL</span>
+                </div>
+              </div>
+              <div class="performer-amount-wrapper">
+                <div class="performer-amount">234.56 SOL</div>
+                <div class="performer-currency">$12,867</div>
+              </div>
+            </div>
+
+            <div class="performer-item">
+              <div class="performer-rank">#4</div>
+              <div class="performer-info">
+                <div class="performer-name">Polygon Validator Delta-03</div>
+                <div class="performer-meta">
+                  <span class="performer-id">0x5f1e...44a2</span>
+                  <span class="performer-protocol">MATIC</span>
+                </div>
+              </div>
+              <div class="performer-amount-wrapper">
+                <div class="performer-amount">3,892 MATIC</div>
+                <div class="performer-currency">$10,978</div>
+              </div>
+            </div>
+
+            <div class="performer-item">
+              <div class="performer-rank">#5</div>
+              <div class="performer-info">
+                <div class="performer-name">Ethereum Validator Gamma-03</div>
+                <div class="performer-meta">
+                  <span class="performer-id">0x9c7b...33f1</span>
+                  <span class="performer-protocol">ETH</span>
+                </div>
+              </div>
+              <div class="performer-amount-wrapper">
+                <div class="performer-amount">64.91 ETH</div>
+                <div class="performer-currency">$17,668</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insights -->
+        <div class="insights-box">
+          <div class="insights-title">
+            <span>💡</span>
+            <span>Performance Insights</span>
+          </div>
+          <div class="insights-text">
+            Your multi-chain validator network is up 8.4% this month. Solana validators showed the strongest growth at
+            +15.2%, while Ethereum validators contributed 50% of total rewards. Consider rebalancing: 3 Cosmos
+            validators are underperforming and may need attention.
+          </div>
+        </div>
+
+        <!-- All Validators Summary Table -->
+        <div class="section">
+          <h2 class="section-title">All Validators Overview</h2>
+
+          <table class="compact-table">
+            <thead>
+              <tr>
+                <th>Validator</th>
+                <th class="align-right">Rewards</th>
+                <th class="align-right">Change</th>
+                <th class="align-right">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="node-name-cell">
+                  Ethereum Alpha-01
+                  <div class="node-meta">
+                    <span class="node-id-small">0x742d...89ef</span>
+                    <span class="node-protocol-badge">ETH</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">43.45 ETH</span>
+                  <span class="currency-label">$11,827</span>
+                </td>
+                <td class="change-cell change-positive align-right">+12.4%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Polygon Beta-02
+                  <div class="node-meta">
+                    <span class="node-id-small">0x8a3c...12bd</span>
+                    <span class="node-protocol-badge">MATIC</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">2,387 MATIC</span>
+                  <span class="currency-label">$6,728</span>
+                </td>
+                <td class="change-cell change-positive align-right">+8.7%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Solana Prime-03
+                  <div class="node-meta">
+                    <span class="node-id-small">9Xm...Qa7Z</span>
+                    <span class="node-protocol-badge">SOL</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">156.84 SOL</span>
+                  <span class="currency-label">$8,601</span>
+                </td>
+                <td class="change-cell change-positive align-right">+18.3%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Cosmos Delta-01
+                  <div class="node-meta">
+                    <span class="node-id-small">cosmos...a3f2</span>
+                    <span class="node-protocol-badge">ATOM</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">892 ATOM</span>
+                  <span class="currency-label">$7,901</span>
+                </td>
+                <td class="change-cell change-negative align-right">-5.2%</td>
+                <td class="align-right"><span class="status-badge status-warning">Review</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Avalanche Echo-01
+                  <div class="node-meta">
+                    <span class="node-id-small">0x7e2f...91c3</span>
+                    <span class="node-protocol-badge">AVAX</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">167.23 AVAX</span>
+                  <span class="currency-label">$4,406</span>
+                </td>
+                <td class="change-cell change-positive align-right">+11.7%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Ethereum Beta-06
+                  <div class="node-meta">
+                    <span class="node-id-small">0x1c4a...56d8</span>
+                    <span class="node-protocol-badge">ETH</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">38.91 ETH</span>
+                  <span class="currency-label">$10,590</span>
+                </td>
+                <td class="change-cell change-positive align-right">+6.4%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Polygon Gamma-04
+                  <div class="node-meta">
+                    <span class="node-id-small">0x9d8b...42e7</span>
+                    <span class="node-protocol-badge">MATIC</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">2,145 MATIC</span>
+                  <span class="currency-label">$6,047</span>
+                </td>
+                <td class="change-cell change-positive align-right">+4.8%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Solana Wave-02
+                  <div class="node-meta">
+                    <span class="node-id-small">7Bc...Mp3N</span>
+                    <span class="node-protocol-badge">SOL</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">134.67 SOL</span>
+                  <span class="currency-label">$7,386</span>
+                </td>
+                <td class="change-cell change-positive align-right">+13.9%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Ethereum Zeta-09
+                  <div class="node-meta">
+                    <span class="node-id-small">0x4a7e...83f5</span>
+                    <span class="node-protocol-badge">ETH</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">41.23 ETH</span>
+                  <span class="currency-label">$11,221</span>
+                </td>
+                <td class="change-cell change-positive align-right">+9.2%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="node-name-cell">
+                  Cosmos Theta-02
+                  <div class="node-meta">
+                    <span class="node-id-small">cosmos...7d4b</span>
+                    <span class="node-protocol-badge">ATOM</span>
+                  </div>
+                </td>
+                <td class="amount-cell align-right">
+                  <span class="amount-with-currency">756 ATOM</span>
+                  <span class="currency-label">$6,697</span>
+                </td>
+                <td class="change-cell change-negative align-right">-2.8%</td>
+                <td class="align-right"><span class="status-badge status-active">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="table-footer">
+            <span class="table-footer-text">Showing 10 of 35 validators</span>
+            <a href="https://app.zeeve.io/validators" class="view-all-link">View All Validators →</a>
+          </div>
+        </div>
+
+        <!-- Withdrawal Transactions -->
+        <div class="section">
+          <h2 class="section-title">Recent Withdrawals</h2>
+
+          <table class="withdrawal-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Validator</th>
+                <th>Amount</th>
+                <th>Transaction</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="date-cell">Jan 28, 2025</td>
+                <td>
+                  ETH Alpha-07
+                  <span class="node-protocol-badge" style="margin-left: 6px">ETH</span>
+                </td>
+                <td class="amount-cell">50.00 ETH ($13,608)</td>
+                <td><a href="https://etherscan.io/tx/0x..." class="tx-hash">0x1e4f...5b89</a></td>
+              </tr>
+              <tr>
+                <td class="date-cell">Jan 26, 2025</td>
+                <td>
+                  SOL Prime-01
+                  <span class="node-protocol-badge" style="margin-left: 6px">SOL</span>
+                </td>
+                <td class="amount-cell">150.00 SOL ($8,226)</td>
+                <td><a href="https://solscan.io/tx/..." class="tx-hash">4vMp...Kx7N</a></td>
+              </tr>
+              <tr>
+                <td class="date-cell">Jan 22, 2025</td>
+                <td>
+                  MATIC Beta-03
+                  <span class="node-protocol-badge" style="margin-left: 6px">MATIC</span>
+                </td>
+                <td class="amount-cell">5,000 MATIC ($14,100)</td>
+                <td><a href="https://polygonscan.com/tx/0x..." class="tx-hash">0x3b7d...9a21</a></td>
+              </tr>
+              <tr>
+                <td class="date-cell">Jan 20, 2025</td>
+                <td>
+                  ETH Beta-12
+                  <span class="node-protocol-badge" style="margin-left: 6px">ETH</span>
+                </td>
+                <td class="amount-cell">75.00 ETH ($20,412)</td>
+                <td><a href="https://etherscan.io/tx/0x..." class="tx-hash">0x8f9c...2e67</a></td>
+              </tr>
+              <tr>
+                <td class="date-cell">Jan 18, 2025</td>
+                <td>
+                  ATOM Delta-01
+                  <span class="node-protocol-badge" style="margin-left: 6px">ATOM</span>
+                </td>
+                <td class="amount-cell">1,200 ATOM ($10,632)</td>
+                <td><a href="https://mintscan.io/cosmos/tx/..." class="tx-hash">A7B3...F912</a></td>
+              </tr>
+              <tr>
+                <td class="date-cell">Jan 15, 2025</td>
+                <td>
+                  AVAX Echo-01
+                  <span class="node-protocol-badge" style="margin-left: 6px">AVAX</span>
+                </td>
+                <td class="amount-cell">200.00 AVAX ($5,268)</td>
+                <td><a href="https://snowtrace.io/tx/0x..." class="tx-hash">0x4d3b...1f76</a></td>
+              </tr>
+              <tr>
+                <td class="date-cell">Jan 12, 2025</td>
+                <td>
+                  SOL Wave-02
+                  <span class="node-protocol-badge" style="margin-left: 6px">SOL</span>
+                </td>
+                <td class="amount-cell">180.00 SOL ($9,871)</td>
+                <td><a href="https://solscan.io/tx/..." class="tx-hash">9Qx...Zy4M</a></td>
+              </tr>
+              <tr>
+                <td class="date-cell">Jan 08, 2025</td>
+                <td>
+                  ETH Gamma-03
+                  <span class="node-protocol-badge" style="margin-left: 6px">ETH</span>
+                </td>
+                <td class="amount-cell">60.00 ETH ($16,326)</td>
+                <td><a href="https://etherscan.io/tx/0x..." class="tx-hash">0x6a8e...9c42</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="table-footer">
+            <span class="table-footer-text">8 withdrawals • Total: $142,443 USD</span>
+            <a href="https://app.zeeve.io/withdrawals" class="view-all-link">View All Transactions →</a>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+          <h3 class="cta-title">Dive Deeper Into Your Data</h3>
+          <p class="cta-text">
+            Access detailed analytics, historical trends, and optimization recommendations for each validator across all
+            protocols.
+          </p>
+          <div class="cta-buttons">
+            <a href="https://app.zeeve.io/dashboard" class="cta-button">View Full Dashboard →</a>
+            <a href="https://app.zeeve.io/validators/export" class="cta-button cta-button-secondary"
+              >Download Multi-Chain Report</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p class="footer-text">This is an automated monthly report from Zeeve. Questions about your validators?</p>
+        <div class="footer-links">
+          <a href="https://www.zeeve.io/support" class="footer-link">Support Center</a>
+          <a href="https://www.zeeve.io/docs" class="footer-link">Documentation</a>
+          <a href="https://app.zeeve.io/settings/notifications" class="footer-link">Email Preferences</a>
+        </div>
+        <p class="footer-text" style="margin-top: 16px">© 2025 Zeeve. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

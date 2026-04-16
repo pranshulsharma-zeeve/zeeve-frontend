@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Combined Report</title>
+  </head>
+  <body style="margin: 0; padding: 0; background-color: #f4f6fb; font-family: &quot;DM Sans&quot;, Arial, sans-serif">
+    <!-- Subject: Weekly performance roundup - RPC + Validator health in one view -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f4f6fb">
+      <tr>
+        <td align="center" style="padding: 24px 12px">
+          <table
+            role="presentation"
+            width="700"
+            cellspacing="0"
+            cellpadding="0"
+            style="
+              background-color: #ffffff;
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+            "
+          >
+            <tr>
+              <td style="background: linear-gradient(120deg, #1f2937, #312e81); padding: 28px; color: #ffffff">
+                <div style="font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #cbd5f5">
+                  Weekly Combined Report
+                </div>
+                <div style="font-size: 24px; font-weight: 700; margin-top: 8px">{{accountName}} - Network health</div>
+                <div style="font-size: 14px; margin-top: 6px; color: #e2e8f0">{{reportPeriod}}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 22px 28px 6px 28px">
+                <div style="font-size: 16px; font-weight: 600; color: #0f172a">Executive summary</div>
+                <p style="margin: 8px 0 0 0; font-size: 14px; color: #475569; line-height: 1.6">
+                  Across RPC and Validator nodes, your account achieved
+                  <strong>{{overallUptimePct}} uptime</strong> while processing <strong>{{totalRequests}}</strong> RPC
+                  requests and earning <strong>{{totalRewards}}</strong> in validator rewards.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 12px 28px 8px 28px">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="width: 25%; padding-right: 8px">
+                      <div style="background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 12px; padding: 12px">
+                        <div style="font-size: 12px; color: #4338ca">Total nodes</div>
+                        <div style="font-size: 18px; font-weight: 700; color: #312e81">{{totalNodes}}</div>
+                      </div>
+                    </td>
+                    <td style="width: 25%; padding: 0 8px">
+                      <div style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 12px">
+                        <div style="font-size: 12px; color: #15803d">RPC latency</div>
+                        <div style="font-size: 18px; font-weight: 700; color: #166534">{{avgLatencyMs}} ms</div>
+                      </div>
+                    </td>
+                    <td style="width: 25%; padding: 0 8px">
+                      <div style="background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 12px; padding: 12px">
+                        <div style="font-size: 12px; color: #be185d">Total stake</div>
+                        <div style="font-size: 18px; font-weight: 700; color: #9d174d">{{totalStake}}</div>
+                      </div>
+                    </td>
+                    <td style="width: 25%; padding-left: 8px">
+                      <div style="background: #fff7ed; border: 1px solid #fdba74; border-radius: 12px; padding: 12px">
+                        <div style="font-size: 12px; color: #c2410c">Active alerts</div>
+                        <div style="font-size: 18px; font-weight: 700; color: #7c2d12">{{alertCount}}</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 0 28px 8px 28px">
+                <div style="font-size: 12px; font-weight: 600; color: #64748b; margin-bottom: 6px">
+                  Week-over-week change
+                </div>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="width: 33%; padding-right: 8px; font-size: 12px; color: #374151">
+                      Requests: <strong>{{requestsDeltaPct}}%</strong>
+                    </td>
+                    <td style="width: 33%; padding: 0 8px; font-size: 12px; color: #374151">
+                      Rewards: <strong>{{rewardsDeltaPct}}%</strong>
+                    </td>
+                    <td style="width: 33%; padding-left: 8px; font-size: 12px; color: #374151">
+                      Uptime: <strong>{{uptimeDeltaPct}}%</strong>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 18px 28px 6px 28px">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="width: 50%; padding-right: 8px">
+                      <div style="border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px; background: #f8fafc">
+                        <div style="font-size: 13px; font-weight: 600; color: #0f172a">RPC fleet status</div>
+                        <div style="margin-top: 8px">
+                          <span
+                            style="
+                              display: inline-block;
+                              padding: 6px 10px;
+                              background: #ecfdf3;
+                              color: #16a34a;
+                              border: 1px solid #86efac;
+                              border-radius: 999px;
+                              font-size: 12px;
+                              font-weight: 600;
+                            "
+                          >
+                            {{rpcHealthLabel}}
+                          </span>
+                        </div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 6px">{{rpcSummaryText}}</div>
+                      </div>
+                    </td>
+                    <td style="width: 50%; padding-left: 8px">
+                      <div style="border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px; background: #f8fafc">
+                        <div style="font-size: 13px; font-weight: 600; color: #0f172a">Validator fleet status</div>
+                        <div style="margin-top: 8px">
+                          <span
+                            style="
+                              display: inline-block;
+                              padding: 6px 10px;
+                              background: #eff6ff;
+                              color: #2563eb;
+                              border: 1px solid #93c5fd;
+                              border-radius: 999px;
+                              font-size: 12px;
+                              font-weight: 600;
+                            "
+                          >
+                            {{validatorHealthLabel}}
+                          </span>
+                        </div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 6px">{{validatorSummaryText}}</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 18px 28px 6px 28px">
+                <div style="font-size: 14px; font-weight: 600; color: #0f172a">Key insights & next steps</div>
+                <ul style="margin: 8px 0 0 18px; padding: 0; color: #475569; font-size: 13px; line-height: 1.6">
+                  <li>{{insightOne}}</li>
+                  <li>{{insightTwo}}</li>
+                  <li>{{insightThree}}</li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="center" style="padding: 24px 28px 32px 28px">
+                <a
+                  href="{{dashboardUrl}}"
+                  style="
+                    display: inline-block;
+                    background: #4338ca;
+                    color: #ffffff;
+                    text-decoration: none;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                >
+                  View full account report
+                </a>
+                <div style="margin-top: 12px; font-size: 12px; color: #94a3b8">
+                  Open the dashboard for detailed RPC + Validator analytics.
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

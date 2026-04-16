@@ -1,0 +1,30 @@
+import * as React from "react";
+import { SVGProps } from "react";
+
+const IconBarChart = (props: SVGProps<SVGSVGElement>) => (
+  <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M10.4998 21.3332H15.4998C19.6665 21.3332 21.3332 19.6665 21.3332 15.4998V10.4998C21.3332 6.33317 19.6665 4.6665 15.4998 4.6665H10.4998C6.33317 4.6665 4.6665 6.33317 4.6665 10.4998V15.4998C4.6665 19.6665 6.33317 21.3332 10.4998 21.3332Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M15.9167 18.4168C16.8333 18.4168 17.5833 17.6668 17.5833 16.7502V9.25016C17.5833 8.3335 16.8333 7.5835 15.9167 7.5835C15 7.5835 14.25 8.3335 14.25 9.25016V16.7502C14.25 17.6668 14.9917 18.4168 15.9167 18.4168Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M10.0832 18.4165C10.9998 18.4165 11.7498 17.6665 11.7498 16.7498V13.8332C11.7498 12.9165 10.9998 12.1665 10.0832 12.1665C9.1665 12.1665 8.4165 12.9165 8.4165 13.8332V16.7498C8.4165 17.6665 9.15817 18.4165 10.0832 18.4165Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export default IconBarChart;

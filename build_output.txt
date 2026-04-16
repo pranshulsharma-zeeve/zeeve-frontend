@@ -1,0 +1,366 @@
+  ▲ Next.js 14.2.32
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+
+Failed to compile.
+
+./src/app/arbitrum-orbit/_components/subscription-info.tsx
+14:11  Warning: 'start' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/deploy/page-client.tsx
+8:10  Warning: 'Controller' is defined but never used.  @typescript-eslint/no-unused-vars
+17:10  Warning: 'useModalStore' is defined but never used.  @typescript-eslint/no-unused-vars
+25:10  Warning: 'Z4ReactSelect' is defined but never used.  @typescript-eslint/no-unused-vars
+155:5  Warning: 'control' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+251:6  Warning: React Hook useEffect has missing dependencies: 'onExternalDAChange', 'onNativeGasTokenChange', and 'onSequencerChange'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/arbitrum-orbit/deploy/page.tsx
+3:10  Warning: 'useParams' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/actions-dropdown.tsx
+14:10  Warning: 'IconSetting1' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/parameters.tsx
+19:50  Warning: 'colorScheme' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+29:22  Warning: 'isLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/tabs/bridge/bridge.tsx
+4:10  Warning: 'IconPhoneVolume' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/tabs/my-nodes/node-card.tsx
+3:3  Warning: 'Button' is defined but never used.  @typescript-eslint/no-unused-vars
+5:3  Warning: 'DropdownMenu' is defined but never used.  @typescript-eslint/no-unused-vars
+6:3  Warning: 'DropdownMenuButton' is defined but never used.  @typescript-eslint/no-unused-vars
+7:3  Warning: 'DropdownMenuItem' is defined but never used.  @typescript-eslint/no-unused-vars
+8:3  Warning: 'DropdownMenuList' is defined but never used.  @typescript-eslint/no-unused-vars
+9:3  Warning: 'Tooltip' is defined but never used.  @typescript-eslint/no-unused-vars
+14:8  Warning: 'SvgThreeDots' is defined but never used.  @typescript-eslint/no-unused-vars
+15:22  Warning: 'toShortString' is defined but never used.  @typescript-eslint/no-unused-vars
+28:21  Warning: 'nodeId' is defined but never used.  @typescript-eslint/no-unused-vars
+28:29  Warning: 'networkId' is defined but never used.  @typescript-eslint/no-unused-vars
+28:50  Warning: 'nodeType' is defined but never used.  @typescript-eslint/no-unused-vars
+29:19  Warning: 'isDropdownOpen' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+29:49  Warning: 'handleDropdownToggle' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+29:84  Warning: 'handleDropdownClose' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+30:11  Warning: 'openModal' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/tabs/overview/address-info.tsx
+3:10  Warning: 'CopyButton' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/tabs/overview/l2-info.tsx
+3:10  Warning: 'useSearchParams' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/tabs/overview/nodes-overview.tsx
+14:32  Warning: 'isLoading' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/tabs/overview/overview.tsx
+7:8  Warning: 'L1Info' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/_components/tabs/overview/token-info.tsx
+3:10  Warning: 'CopyButton' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/arbitrum-orbit/network/[id]/nodes/rpc-endpoint.tsx
+3:10  Warning: 'CopyButton' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/auth/login/[[...slug]]/page-client.tsx
+72:24  Warning: 'setRegistrationFormData' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+72:49  Warning: 'setStep' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/layout.tsx
+34:9  Warning: Prefer `next/script` component when using the inline script for Google Analytics. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
+
+./src/app/manage/nodes/archive/[id]/page-client.tsx
+6:10  Warning: 'capitalizeFirstLetter' is defined but never used.  @typescript-eslint/no-unused-vars
+12:10  Warning: 'PROTOCOL_MAPPING' is defined but never used.  @typescript-eslint/no-unused-vars
+38:9  Warning: 'platformService' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/archive/_components/nodes-table.tsx
+42:33  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/manage/nodes/archive/protocols/_components/plan-header.tsx
+16:23  Warning: 'plan' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/archive/protocols/page-client.tsx
+71:6  Warning: React Hook useEffect has missing dependencies: 'email', 'vizionRequest', and 'vizionUrl'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+140:9  Warning: The 'protocolRecords' logical expression could make the dependencies of useMemo Hook (at line 143) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'protocolRecords' in its own useMemo() Hook.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/archive/protocols/purchase/page-client.tsx
+55:9  Warning: The 'protocolRecords' logical expression could make the dependencies of useMemo Hook (at line 58) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'protocolRecords' in its own useMemo() Hook.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/full/[id]/_components/details/logs/logs.tsx
+83:9  Warning: 'dataN' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/full/[id]/_components/details/logs/logsComponent.tsx
+24:8  Warning: 'IconInfo' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/full/[id]/_components/details/node-configuration/node-configuration.tsx
+12:8  Warning: 'HTTP_STATUS' is defined but never used.  @typescript-eslint/no-unused-vars
+93:6  Warning: React Hook useEffect has a missing dependency: 'extractRelevantKeys'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+125:6  Warning: React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+164:6  Warning: React Hook useEffect has missing dependencies: 'addConfigUpdationLogRequest', 'addConfigUpdationLogUrl', 'extractRelevantKeys', 'networkDetails.nodes', 'networkDetails.protocol.name', and 'toast'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/full/[id]/_components/details/node-configuration/observer-accordion.tsx
+4:68  Warning: 'Input' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/full/[id]/page-client.tsx
+80:67  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/manage/nodes/full/_components/nodes-table.tsx
+38:48  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+41:33  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+54:64  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+97:62  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+107:66  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/manage/nodes/full/protocols/_components/plan-header.tsx
+16:23  Warning: 'plan' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/full/protocols/page-client.tsx
+71:6  Warning: React Hook useEffect has missing dependencies: 'email', 'vizionRequest', and 'vizionUrl'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+139:9  Warning: The 'protocolRecords' logical expression could make the dependencies of useMemo Hook (at line 142) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'protocolRecords' in its own useMemo() Hook.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/full/protocols/purchase/page-client.tsx
+56:9  Warning: The 'protocolRecords' logical expression could make the dependencies of useMemo Hook (at line 59) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'protocolRecords' in its own useMemo() Hook.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/validator/[id]/_components/details/general-info.tsx
+4:10  Warning: 'Heading' is defined but never used.  @typescript-eslint/no-unused-vars
+6:8  Warning: 'KeyValuePair' is defined but never used.  @typescript-eslint/no-unused-vars
+9:10  Warning: 'toCapitalize' is defined but never used.  @typescript-eslint/no-unused-vars
+15:30  Warning: 'isLoading' is defined but never used.  @typescript-eslint/no-unused-vars
+44:65  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/manage/nodes/validator/[id]/_components/nodes-table.tsx
+12:62  Warning: 'withBasePath' is defined but never used.  @typescript-eslint/no-unused-vars
+18:10  Warning: 'PROTOCOL_MAPPING' is defined but never used.  @typescript-eslint/no-unused-vars
+164:11  Warning: 'networkStatus' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+168:11  Warning: 'networkMetaData' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+169:11  Warning: 'endpoint' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+183:7  Warning: 'href' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/beam/_components/general-info.tsx
+23:20  Warning: 'info' is defined but never used.  @typescript-eslint/no-unused-vars
+40:20  Warning: 'info' is defined but never used.  @typescript-eslint/no-unused-vars
+55:20  Warning: 'info' is defined but never used.  @typescript-eslint/no-unused-vars
+70:20  Warning: 'info' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/alerts/alerts-card.tsx
+30:20  Warning: 'alertsRequest' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+43:9  Warning: 'user' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+110:6  Warning: React Hook useEffect has a missing dependency: 'fetchAlertsData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/alerts/alerts.tsx
+18:7  Warning: 'severityIcons' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/delegation-transaction/delegation-transaction.tsx
+5:10  Warning: 'format' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/financials/area-chart.tsx
+3:17  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars
+3:28  Warning: 'useState' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/financials/bar-chart.tsx
+3:17  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars
+3:28  Warning: 'useState' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/financials/financials-transactions-area.tsx
+18:11  Warning: 'request' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+19:10  Warning: 'isLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+73:6  Warning: React Hook useEffect has a missing dependency: 'fetchChartData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/node-metrics/node-metrics-card.tsx
+3:10  Warning: 'usePathname' is defined but never used.  @typescript-eslint/no-unused-vars
+3:23  Warning: 'useSearchParams' is defined but never used.  @typescript-eslint/no-unused-vars
+9:8  Warning: 'CopyButton' is defined but never used.  @typescript-eslint/no-unused-vars
+10:10  Warning: 'convertMicroToUnit' is defined but never used.  @typescript-eslint/no-unused-vars
+11:10  Warning: 'PROTOCOL_MAPPING' is defined but never used.  @typescript-eslint/no-unused-vars
+19:3  Warning: 'validatorData' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/restake-wallet/restake-wallet-info.tsx
+3:8  Warning: 'Image' is defined but never used.  @typescript-eslint/no-unused-vars
+6:10  Warning: 'IconAccessDenied1' is defined but never used.  @typescript-eslint/no-unused-vars
+9:8  Warning: 'ROUTES' is defined but never used.  @typescript-eslint/no-unused-vars
+11:8  Warning: 'usePlatformService' is defined but never used.  @typescript-eslint/no-unused-vars
+30:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+33:10  Warning: 'restakeModalShow' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+33:28  Warning: 'setRestakeModalShow' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/security-monitoring/security.tsx
+4:8  Warning: 'Link' is defined but never used.  @typescript-eslint/no-unused-vars
+6:21  Warning: 'usePathname' is defined but never used.  @typescript-eslint/no-unused-vars
+43:20  Warning: 'monitoringReuest' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+84:21  Warning: 'setIsLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+88:6  Warning: React Hook useEffect has a missing dependency: 'getMonitorDetails'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/_components/staking-details/staking-details.tsx
+45:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+46:9  Warning: 'networkId' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/cosmos/cosmos.tsx
+6:8  Warning: 'CloudInfra' is defined but never used.  @typescript-eslint/no-unused-vars
+47:20  Warning: 'stakingValidatorReuest' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+87:6  Warning: React Hook useEffect has a missing dependency: 'getStakingDetails'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/validator/[id]/_components/protocols/evm/evm.tsx
+20:14  Warning: 'info' is defined but never used.  @typescript-eslint/no-unused-vars
+35:14  Warning: 'info' is defined but never used.  @typescript-eslint/no-unused-vars
+50:14  Warning: 'info' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/[id]/page-client.tsx
+5:16  Warning: 'Link' is defined but never used.  @typescript-eslint/no-unused-vars
+5:31  Warning: 'StatusIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+10:10  Warning: 'capitalizeFirstLetter' is defined but never used.  @typescript-eslint/no-unused-vars
+16:8  Warning: 'KeyValuePair' is defined but never used.  @typescript-eslint/no-unused-vars
+17:8  Warning: 'NetworkNodeStatus' is defined but never used.  @typescript-eslint/no-unused-vars
+18:10  Warning: 'formatDateWithoutTime' is defined but never used.  @typescript-eslint/no-unused-vars
+54:31  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+65:53  Warning: 'restakeDataLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+102:67  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+111:12  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+112:77  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+115:28  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+126:14  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+128:10  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/manage/nodes/validator/protocols/_components/plan-header.tsx
+13:23  Warning: 'plan' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/manage/nodes/validator/protocols/page-client.tsx
+71:6  Warning: React Hook useEffect has missing dependencies: 'email', 'vizionRequest', and 'vizionUrl'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+140:9  Warning: The 'protocolRecords' logical expression could make the dependencies of useMemo Hook (at line 143) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'protocolRecords' in its own useMemo() Hook.  react-hooks/exhaustive-deps
+
+./src/app/manage/nodes/validator/protocols/purchase/page-client.tsx
+70:9  Warning: The 'protocolRecords' logical expression could make the dependencies of useMemo Hook (at line 73) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'protocolRecords' in its own useMemo() Hook.  react-hooks/exhaustive-deps
+
+./src/app/vizion/page-client.tsx
+56:6  Warning: React Hook useEffect has missing dependencies: 'createdAt', 'protocolId', and 'theme'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/icons/bar-chart.tsx
+4:23  Warning: 'props' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/icons/logs.tsx
+4:19  Warning: 'props' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/layout/gradient-background.tsx
+7:12  Warning: Classname 'bg-clip-path-blue' is not a Tailwind CSS class!  tailwindcss/no-custom-classname
+8:12  Warning: Classname 'bg-clip-path-green' is not a Tailwind CSS class!  tailwindcss/no-custom-classname
+10:12  Warning: Classname 'bg-clip-path-purple' is not a Tailwind CSS class!  tailwindcss/no-custom-classname
+
+./src/components/modal/change-password-modal.tsx
+11:3  Warning: 'ModalText' is defined but never used.  @typescript-eslint/no-unused-vars
+12:3  Warning: 'ModalTitle' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/modal/enable-restake-modal.tsx
+46:10  Warning: 'isLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+46:21  Warning: 'setLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+50:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+55:5  Warning: 'control' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+57:5  Warning: 'setValue' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/modal/restake-modal.tsx
+22:16  Warning: 'enableStakeUrl' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+28:16  Warning: 'disableStakeUrl' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/modal/set-rewards-modal.tsx
+49:10  Warning: 'isLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+49:21  Warning: 'setLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+53:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/modal/unbound-token-modal.tsx
+49:10  Warning: 'isLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+49:21  Warning: 'setLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+53:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/modal/withdraw-rewards-modal.tsx
+46:10  Warning: 'isLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+46:21  Warning: 'setLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+50:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+68:18  Warning: 'errors' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/navigation/navigation.tsx
+13:32  Warning: 'logo' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/protocol/details/actions.tsx
+113:9  Warning: 'toast' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+126:45  Warning: 'actionLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ui/new-tooltip.tsx
+32:5  Warning: 'className' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+39:8  Warning: 'rest' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/vizion/card-chart.tsx
+3:8  Warning: 'Image' is defined but never used.  @typescript-eslint/no-unused-vars
+5:10  Warning: 'withBasePath' is defined but never used.  @typescript-eslint/no-unused-vars
+23:5  Warning: 'hideGraphSwitch' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+26:5  Warning: 'listGraphType' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+27:5  Warning: 'listGraph' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+33:10  Warning: 'dayRange' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+34:9  Warning: 'updateRange' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/vizion/card.tsx
+26:50  Warning: 'data' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+73:30  Warning: Classname 'size-30' is not a Tailwind CSS class!  tailwindcss/no-custom-classname
+
+./src/components/vizion/chart-tooltip-rpc-full.tsx
+5:8  Warning: 'Image' is defined but never used.  @typescript-eslint/no-unused-vars
+9:10  Warning: 'withBasePath' is defined but never used.  @typescript-eslint/no-unused-vars
+28:9  Warning: 'clockTimestamp' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/vizion/copy-button.tsx
+6:57  Warning: 'Tooltip' is defined but never used.  @typescript-eslint/no-unused-vars
+7:10  Warning: 'useUserStore' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/vizion/filter.tsx
+19:18  Warning: 'filterText' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/vizion/key-value-evm.tsx
+19:7  Warning: 'labelColors' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+41:9  Warning: 'colorBox' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/vizion/key-value.tsx
+20:7  Warning: 'labelColors' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+35:5  Warning: 'isTheme' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+44:9  Warning: 'colorBox' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/hooks/save-txn.ts
+2:10  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars
+2:21  Warning: 'useState' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/hooks/use-keplr.ts
+21:7  Warning: 'errorMsgToInstallKeplr' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+29:10  Warning: 'chainId' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+32:10  Warning: 'aminoSigner' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+34:10  Warning: 'rpc' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+35:10  Warning: 'rest' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+37:10  Warning: 'validatorOwner' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware.ts
+26:9  Warning: 'isRootPath' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/modules/arbitrum-orbit/components/icons/icon-three-dots.tsx
+7:25  Warning: 'title' is defined but never used.  @typescript-eslint/no-unused-vars
+7:32  Warning: 'titleId' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/modules/arbitrum-orbit/components/modals/deploy-network-modal.tsx
+43:19  Warning: Classname 'text-brand-dardk' is not a Tailwind CSS class!  tailwindcss/no-custom-classname
+
+./src/modules/arbitrum-orbit/providers/layout-provider/header.tsx
+44:9  Warning: 'documentationUrl' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+47:9  Warning: 'createDropdownMenu' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+136:6  Warning: React Hook useMemo has a missing dependency: 'helpUrl'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/services/vizion/alerts.tsx
+3:8  Warning: 'ROUTES' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/vizion/financial.ts
+4:8  Warning: 'ROUTES' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/vizion/security-monitoring.tsx
+3:8  Warning: 'ROUTES' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/vizion/stacked-graph.tsx
+5:8  Warning: 'ROUTES' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules

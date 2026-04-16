@@ -1,0 +1,178 @@
+/* Firefox */
+.scrollbar-thin-custom {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 164, 164, 0.6) transparent;
+}
+
+/* Chrome, Edge, Safari */
+.scrollbar-thin-custom::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+.scrollbar-thin-custom::-webkit-scrollbar-track {
+  background: transparent;
+  border: none;
+}
+
+.scrollbar-thin-custom::-webkit-scrollbar-thumb {
+  background-color: rgba(168, 164, 164, 0.6);
+  border-radius: 10px;
+  border: none;
+}
+
+/* Remove arrows in Windows Chrome/Edge */
+.scrollbar-thin-custom::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+:root {
+  --dashboard-dark-from: #0e0f2d;
+  --dashboard-dark-via: #12143b;
+  --dashboard-dark-to: #0f102f;
+  --hero-dark-from: #1b1a4a;
+  --hero-dark-via: #16143b;
+  --hero-dark-to: #0f0b2e;
+  --surface-1-dark: rgba(21, 22, 62, 0.7);
+  --surface-2-dark: rgba(18, 19, 56, 0.8);
+  --surface-3-dark: rgba(20, 20, 59, 0.7);
+  --chip-dark: #0f1030;
+  --badge-dark: #1b1a4a;
+  --skeleton-dark: #2f3148;
+}
+
+html.theme-black {
+  --dashboard-dark-from: #1a1a1a;
+  --dashboard-dark-via: #1f1f1f;
+  --dashboard-dark-to: #262626;
+  --hero-dark-from: #222222;
+  --hero-dark-via: #262626;
+  --hero-dark-to: #2c2c2c;
+  --surface-1-dark: rgba(36, 36, 36, 0.85);
+  --surface-2-dark: rgba(43, 43, 43, 0.9);
+  --surface-3-dark: rgba(36, 36, 36, 0.85);
+  --chip-dark: #2b2b2b;
+  --badge-dark: #2b2b2b;
+  --skeleton-dark: #303030;
+}
+
+html.theme-gray {
+  filter: grayscale(1);
+}
+
+html.theme-gray body {
+  background-color: #f5f6f7;
+}
+
+.layout-background {
+  transition: opacity 150ms ease;
+}
+
+html.theme-black .layout-background {
+  opacity: 0;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-clip-path-gradient {
+    background-image: linear-gradient(92deg, rgba(236, 71, 148, 0.8) 1.24%, rgba(147, 214, 223, 0.5) 139.4%);
+  }
+}
+
+.carousel.carousel-slider {
+  overflow: visible !important;
+}
+
+@media (min-width: 960px) {
+  .carousel .control-dots {
+    bottom: -40px !important;
+  }
+}
+
+.dashboard-hero-swiper .swiper-pagination {
+  position: relative;
+  margin-top: 16px;
+}
+
+.dashboard-hero-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(47, 102, 255, 0.25);
+  opacity: 1;
+}
+
+.dashboard-hero-swiper .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 4px;
+  background: #2f66ff;
+}
+
+.subscriptions-swiper .swiper-pagination {
+  position: relative;
+  margin-top: 16px;
+}
+
+.subscriptions-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 108, 255, 0.25);
+  opacity: 1;
+}
+
+.subscriptions-swiper .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 4px;
+  background: #006cff;
+}
+
+/* Force dropdowns/menus/popovers above all layers */
+[data-radix-popper-content-wrapper],
+[data-radix-portal],
+[data-floating-ui-portal],
+.dropdown-menu,
+.menu-content,
+.select-content,
+div[role="menu"],
+div[role="listbox"],
+div[role="dialog"],
+div[role="tooltip"],
+[data-state="open"],
+.popover,
+.popover-content {
+  z-index: 2147483647 !important; /* ensure on top of any app layer */
+}
+
+/* Make header and its popper content overflow visible and on top */
+header {
+  overflow: visible !important;
+}
+header div[class*="w-max"][class*="min-w-"][class*="shadow-lg"],
+header div[class*="Dropdown"][class*="Menu"][class*="List"],
+header div[role="menu"],
+header div[role="contentinfo"] {
+  position: relative !important;
+  z-index: 2147483647 !important;
+  overflow: visible !important;
+}
+
+header [data-popper-placement] {
+  z-index: 2147483647 !important;
+}
+
+.grecaptcha-badge {
+  left: 16px !important;
+  right: auto !important;
+}
+
+/* Ensure Crisp chat widget stays above all app layers */
+#crisp-chatbox,
+.crisp-client,
+.crisp-iframe,
+.crisp-client > * {
+  z-index: 2147483647 !important;
+}

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly RPC Fleet Report</title>
+  </head>
+  <body style="margin: 0; padding: 0; background-color: #f5f7fb; font-family: &quot;DM Sans&quot;, Arial, sans-serif">
+    <!-- Subject: Weekly RPC fleet pulse - uptime, latency, and top performers inside -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f5f7fb">
+      <tr>
+        <td align="center" style="padding: 24px 12px">
+          <table
+            role="presentation"
+            width="680"
+            cellspacing="0"
+            cellpadding="0"
+            style="
+              background-color: #ffffff;
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+            "
+          >
+            <tr>
+              <td style="background-color: #111827; padding: 28px; color: #ffffff">
+                <div style="font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #cbd5f5">
+                  RPC Fleet Weekly Report
+                </div>
+                <div style="font-size: 24px; font-weight: 700; margin-top: 8px">Acme Labs - Fleet overview</div>
+                <div style="font-size: 14px; margin-top: 6px; color: #e2e8f0">Jan 19 - Jan 25, 2026</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 22px 28px 6px 28px">
+                <div style="font-size: 16px; font-weight: 600; color: #0f172a">Executive summary</div>
+                <p style="margin: 8px 0 0 0; font-size: 14px; color: #475569; line-height: 1.6">
+                  Your RPC fleet handled <strong>1,250,000</strong> requests with an average latency of
+                  <strong>147 ms</strong>. <strong>1</strong> node was healthy, while <strong>1</strong> required
+                  attention. No critical outages were detected.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 12px 28px 8px 28px">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="width: 33%; padding-right: 8px">
+                      <div style="background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 12px; padding: 12px">
+                        <div style="font-size: 12px; color: #4c51bf">Total nodes</div>
+                        <div style="font-size: 18px; font-weight: 700; color: #312e81">2</div>
+                      </div>
+                    </td>
+                    <td style="width: 33%; padding: 0 8px">
+                      <div style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 12px">
+                        <div style="font-size: 12px; color: #15803d">Avg uptime</div>
+                        <div style="font-size: 18px; font-weight: 700; color: #166534">99.25%</div>
+                      </div>
+                    </td>
+                    <td style="width: 33%; padding-left: 8px">
+                      <div style="background: #fff7ed; border: 1px solid #fdba74; border-radius: 12px; padding: 12px">
+                        <div style="font-size: 12px; color: #c2410c">Incidents</div>
+                        <div style="font-size: 18px; font-weight: 700; color: #7c2d12">1</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 0 28px 8px 28px">
+                <div style="font-size: 12px; font-weight: 600; color: #64748b; margin-bottom: 6px">
+                  Week-over-week change
+                </div>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="width: 33%; padding-right: 8px; font-size: 12px; color: #374151">
+                      Requests: <strong>+5.6%</strong>
+                    </td>
+                    <td style="width: 33%; padding: 0 8px; font-size: 12px; color: #374151">
+                      Avg latency: <strong>-2.4%</strong>
+                    </td>
+                    <td style="width: 33%; padding-left: 8px; font-size: 12px; color: #374151">
+                      Avg uptime: <strong>+0.1%</strong>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 16px 28px 8px 28px">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a; margin-bottom: 8px">
+                  Fleet health mix
+                </div>
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  style="border-collapse: collapse"
+                >
+                  <tr>
+                    <td style="height: 10px; background: #16a34a; width: 50%"></td>
+                    <td style="height: 10px; background: #f59e0b; width: 50%"></td>
+                    <td style="height: 10px; background: #ef4444; width: 0%"></td>
+                  </tr>
+                </table>
+                <div style="margin-top: 6px; font-size: 12px; color: #64748b">Healthy - Warning - Critical</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 18px 28px 6px 28px">
+                <div style="font-size: 14px; font-weight: 600; color: #0f172a">Highlights</div>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top: 8px">
+                  <tr>
+                    <td style="width: 50%; padding-right: 8px">
+                      <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; background: #f8fafc">
+                        <div style="font-size: 12px; color: #64748b">Top performer</div>
+                        <div style="font-size: 16px; font-weight: 700; color: #0f172a">RPC-Primary</div>
+                        <div style="font-size: 12px; color: #16a34a">99.6% uptime</div>
+                      </div>
+                    </td>
+                    <td style="width: 50%; padding-left: 8px">
+                      <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; background: #f8fafc">
+                        <div style="font-size: 12px; color: #64748b">Needs attention</div>
+                        <div style="font-size: 16px; font-weight: 700; color: #0f172a">RPC-Backup</div>
+                        <div style="font-size: 12px; color: #f59e0b">Latency spikes above 200 ms</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 16px 28px 4px 28px">
+                <div style="font-size: 14px; font-weight: 600; color: #0f172a">Top usage drivers</div>
+                <ul style="margin: 8px 0 0 18px; padding: 0; color: #475569; font-size: 13px; line-height: 1.6">
+                  <li>US East generated 62% of total requests.</li>
+                  <li>RPC-Primary delivered the lowest latency (120 ms).</li>
+                  <li>1 new alert was opened this week.</li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="center" style="padding: 24px 28px 32px 28px">
+                <a
+                  href="https://app.zeeve.io/reports/rpc-fleet"
+                  style="
+                    display: inline-block;
+                    background: #4338ca;
+                    color: #ffffff;
+                    text-decoration: none;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                >
+                  View full fleet report
+                </a>
+                <div style="margin-top: 12px; font-size: 12px; color: #94a3b8">
+                  Want deeper insights? Open the dashboard to compare every node.
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="axia-icon" clip-path="url(#clip0_913_88099)">
+<circle id="Ellipse 2184" cx="16" cy="16" r="16" fill="#178FE1"/>
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M22.4203 20.0846L17.5637 8H14.479L8 24H11.5971L16.0053 20.7372L20.4563 24H24L22.4203 20.0846ZM19.3435 21.2427L15.984 12.9184L12.6273 21.3975L16.0053 18.7795L19.3435 21.2427Z" fill="white"/>
+<path id="Subtract_2" opacity="0.5" d="M16.0054 20.7372L11.5972 24L12.6274 21.3975L16.0054 18.7795L19.3436 21.2427L20.4564 24L16.0054 20.7372Z" fill="#178FE1"/>
+</g>
+<defs>
+<clipPath id="clip0_913_88099">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>

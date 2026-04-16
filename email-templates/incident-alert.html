@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incident Alert</title>
+  </head>
+  <body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: &quot;DM Sans&quot;, Arial, sans-serif">
+    <!-- Subject: Action required - {{incidentType}} detected on {{nodeName}} -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f9fafb">
+      <tr>
+        <td align="center" style="padding: 24px 12px">
+          <table
+            role="presentation"
+            width="620"
+            cellspacing="0"
+            cellpadding="0"
+            style="
+              background-color: #ffffff;
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+            "
+          >
+            <tr>
+              <td style="background-color: #7f1d1d; padding: 26px; color: #ffffff">
+                <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #fecaca">
+                  Incident Alert
+                </div>
+                <div style="font-size: 24px; font-weight: 700; margin-top: 8px">{{incidentType}} detected</div>
+                <div style="font-size: 14px; margin-top: 6px; color: #fee2e2">{{detectedAt}}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 22px 26px 6px 26px">
+                <div style="font-size: 16px; font-weight: 600; color: #0f172a">Summary</div>
+                <p style="margin: 8px 0 0 0; font-size: 14px; color: #475569; line-height: 1.6">
+                  We detected <strong>{{incidentType}}</strong> on <strong>{{nodeName}}</strong>. The issue has impacted
+                  <strong>{{impactSummary}}</strong>. Immediate review is recommended.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 12px 26px 6px 26px">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="width: 50%; padding-right: 8px">
+                      <div style="font-size: 12px; color: #6b7280">Severity</div>
+                      <div style="margin-top: 6px">
+                        <span
+                          style="
+                            display: inline-block;
+                            padding: 6px 10px;
+                            background: #fee2e2;
+                            color: #b91c1c;
+                            border: 1px solid #fca5a5;
+                            border-radius: 999px;
+                            font-size: 12px;
+                            font-weight: 600;
+                          "
+                        >
+                          {{severityLabel}}
+                        </span>
+                      </div>
+                    </td>
+                    <td style="width: 50%; padding-left: 8px">
+                      <div style="font-size: 12px; color: #6b7280">Status</div>
+                      <div style="margin-top: 6px">
+                        <span
+                          style="
+                            display: inline-block;
+                            padding: 6px 10px;
+                            background: #fef3c7;
+                            color: #b45309;
+                            border: 1px solid #fcd34d;
+                            border-radius: 999px;
+                            font-size: 12px;
+                            font-weight: 600;
+                          "
+                        >
+                          {{incidentStatus}}
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 16px 26px 6px 26px">
+                <div style="background: #fff1f2; border: 1px solid #fecdd3; border-radius: 12px; padding: 12px">
+                  <div style="font-size: 13px; font-weight: 600; color: #9f1239">Recommended actions</div>
+                  <ul style="margin: 8px 0 0 18px; padding: 0; color: #7f1d1d; font-size: 13px; line-height: 1.6">
+                    <li>{{recommendedActionOne}}</li>
+                    <li>{{recommendedActionTwo}}</li>
+                    <li>{{recommendedActionThree}}</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 18px 26px 8px 26px">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a">Timeline</div>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top: 8px">
+                  <tr>
+                    <td style="font-size: 12px; color: #64748b; padding: 6px 0">Detected</td>
+                    <td style="font-size: 12px; color: #0f172a; padding: 6px 0" align="right">{{detectedAt}}</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size: 12px; color: #64748b; padding: 6px 0">Current impact</td>
+                    <td style="font-size: 12px; color: #0f172a; padding: 6px 0" align="right">{{currentImpact}}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="center" style="padding: 24px 26px 30px 26px">
+                <a
+                  href="{{dashboardUrl}}"
+                  style="
+                    display: inline-block;
+                    background: #dc2626;
+                    color: #ffffff;
+                    text-decoration: none;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                >
+                  Review incident in dashboard
+                </a>
+                <div style="margin-top: 12px; font-size: 12px; color: #94a3b8">
+                  This alert was generated automatically by Zeeve Monitoring.
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
